@@ -29,6 +29,19 @@ public class FunctionalInterfaceTest {
 		Function<String,String> backToStrFunction = toIntegerFunction.andThen(String::valueOf);
 		System.out.println("toIntegerFunction:" + toIntegerFunction.apply("999"));
 		System.out.println("backToStrFunction:" + backToStrFunction.apply("888"));
+		
+//		函数组合之compose, 先执行compose里的参数部分，再执行compose的调用者
+		Function<Integer,Integer> times2 = e -> e * 2;
+		Function<Integer,Integer> squared = e -> e * e;
+		Integer times2Res = times2.compose(squared).apply(6);
+		Integer squaredRes = squared.compose(times2).apply(6);
+		System.out.println("compose squared:" + times2Res);
+		System.out.println("compose times2:" + squaredRes);
+		
+//		函数组合之andThen，先执行andThen的调用者，再执行andThen里的参数部分
+		Function<Integer,Boolean> biggerThan = n -> n > 100;
+		Function<Boolean,Integer> positive_negative = flag -> flag == true? 1:-1;
+		Integer biggerRes = biggerThan.andThen(positive_negative).apply(123);
 	}
 
 }
