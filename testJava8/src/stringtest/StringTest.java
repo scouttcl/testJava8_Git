@@ -28,7 +28,7 @@ public class StringTest {
 		String xml2 = "<SERVICENAME>LST VSRR</SERVICENAME>\n"
 				+ "<IMSI>613020118735961</IMSI>\n"
 				+ "<TPLTYPE>VLR</TPLTYPE>";
-		StringTest.convertLabelLower(xml2);
+//		StringTest.convertLabelLower(xml2);
 	}
 	
 	public static String toLowerLable(String xml) {
@@ -46,7 +46,6 @@ public class StringTest {
 						break;
 					}
 				}
-				continue;
 			}else {
 				if(i > start && i < end) {
 					ccArr[i] = String.valueOf(ccArr[i]).toLowerCase().charAt(0);
