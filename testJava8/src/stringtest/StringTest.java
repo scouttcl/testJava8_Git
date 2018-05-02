@@ -21,19 +21,17 @@ public class StringTest {
 		subxml = subxml + "</DATA2>";
 		xml = xml + subxml;
 		System.out.println("start time:"+System.currentTimeMillis());
-		StringTest st1 = new StringTest();
-		st1.toLowerLable(xml);
+		StringTest.toLowerLable(xml);
 		System.out.println("end time:"+System.currentTimeMillis());
 		
 //		·½·¨2
 		String xml2 = "<SERVICENAME>LST VSRR</SERVICENAME>\n"
 				+ "<IMSI>613020118735961</IMSI>\n"
 				+ "<TPLTYPE>VLR</TPLTYPE>";
-		StringTest st = new StringTest();
-		st.convertLabelLower(xml2);
+		StringTest.convertLabelLower(xml2);
 	}
 	
-	public String toLowerLable(String xml) {
+	public static String toLowerLable(String xml) {
 //		start is "<" index
 		int start = 0;
 //		end is ">" index
@@ -60,7 +58,7 @@ public class StringTest {
 		return xml;
 	}
 	
-	public String convertLabelLower(String str){
+	public static String convertLabelLower(String str){
 //		String[] array1 = str.split(">[0-9a-zA-Z\\s\\|]+<");
 		String[] array1 = str.split(">[\\w\\s\\|\\.\\_]+<");
 		for(String arr:array1){
