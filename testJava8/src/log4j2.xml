@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="OFF">
+	<Properties>
+		<!-- %p and %level are both supported for log level display -->
+		<property name="log_pattern">%d{yyyy-MM-dd 'at' HH:mm:ss sss} %-5p [%t] [%-5level] %c{36} - %M : (%L) %m%n</property>
+		<property name="file_name">C:/demo project/testJava8_Git/testJava8/logtest.log</property>
+		<property name="rolling_file_name">C:/demo project/testJava8_Git/testJava8/logtest-%d{yyyy-MM-dd_HH-mm}-%i.log.gz</property>
+		<property name="every_file_size">1KB</property>
+		<property name="output_log_level">debug</property>
+	</Properties>
+	<Appenders>
+		<Console name="Console" target="SYSTEM_OUT">
+			<PatternLayout pattern="${log_pattern}"/>
+		</Console>
+		<RollingFile name="RollingFile" fileName="${file_name}" filePattern="${rolling_file_name}">
+			<PatternLayout pattern="${log_pattern}"/>
+			<SizeBasedTriggeringPolicy size="${every_file_size}"/>
+		</RollingFile>
+	</Appenders>
+	
+	<Loggers>
+		<!-- <root level="${output_log_level}">
+			<appender-ref ref="Console"/>
+			<appender-ref ref="RollingFile"/>
+		</root> -->
+		
+		<!-- additivity means whether use default pattern layout, false means not, 
+		if Logger contains Appender-ref then default pattern layout will append user-defined pattern layout if additivity is true-->
+		<Logger name="testLogger1" additivity="false" level="debug">
+			<Appender-ref ref="Console" />
+		</Logger>
+		<Logger name="testLogger2" additivity="false" level="error">
+			<Appender-ref ref="RollingFile"/>
+		</Logger>
+	</Loggers>
+</Configuration>

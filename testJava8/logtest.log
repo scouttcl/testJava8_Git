@@ -1,0 +1,7 @@
+2018-10-17 at 11:16:18 018 DEBUG [main] [DEBUG] log4j2test.LogTest - main : log4j2 debug: Hello world!
+2018-10-17 at 11:16:18 018 DEBUG [main] [DEBUG] log4j2test.LogTest - putLog : put log
+2018-10-17 at 11:16:40 040 INFO  [main] [ INFO] log4j2test.LogTest - main : log4j2 info: Hello world!
+2018-10-17 at 11:16:40 040 DEBUG [main] [DEBUG] log4j2test.LogTest - main : log4j2 debug: Hello world!
+2018-10-17 at 11:16:40 040 DEBUG [main] [DEBUG] log4j2test.LogTest - putLog : put log
+2018-10-17 at 14:01:00 000 WARN  [main] [WARN ] testLogger2 - main : (11) log4j2 warn: Hello log4j 2.x!
+2018-10-17 at 14:06:53 053 ERROR [main] [ERROR] testLogger2 - main : (12) log4j2 error: Hello log4j 2.x!
